@@ -1,0 +1,7 @@
+[package]
+name = "yrsk-demo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+yrsk = { git = "https://github.com/marmocc/yrsk" }
