@@ -8,7 +8,7 @@ fn main() {
 
     {
         let mut chaos = Chaos;
-        let mut surface = Terminal::new();
+        let mut surface = Terminal::new().expect("Unable to create Terminal.");
         result = surface.benchmark(&mut chaos, 10_000);
     }
 
