@@ -1,24 +1,14 @@
-use yrsk::{
-    painters::chaos::Chaos,
-    rendering::{ansi::terminal::Terminal, renderer::Renderer},
-};
+use yrsk::rendering::{ansi::terminal::Terminal, renderer::Renderer};
 
 fn main() {
-    let result;
+    let mut surface = Terminal::new().expect("Unable to create Terminal.");
+    let result = surface.benchmark(10_000);
+    drop(surface);
 
-    {
-        let mut chaos = Chaos;
-        let mut surface = Terminal::new().expect("Unable to create Terminal.");
-        result = surface.benchmark(&mut chaos, 10_000);
-    }
-
-    match result {
-        Ok(timings) => println!(
-            "Paint: {} - Play: {} - Present: {}",
-            timings.paint.as_micros(),
-            timings.play.as_micros(),
-            timings.present.as_micros()
-        ),
-        Err(error) => println!("{}", error),
-    }
+    let (average_paint, average_present) = result.expect("Something went wrong.");
+    println!(
+        "Paint: {}us - Present: {}us",
+        average_paint.as_micros(),
+        average_present.as_micros(),
+    );
 }
