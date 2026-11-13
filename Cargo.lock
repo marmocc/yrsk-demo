@@ -5,7 +5,7 @@ version = 4
 [[package]]
 name = "yrsk"
 version = "0.1.0"
-source = "git+https://github.com/marmocc/yrsk#6e9ec1c32ad2be2275820cedb33a82050f2cf41c"
+source = "git+https://github.com/marmocc/yrsk#0146b3e6c551ed90323f6a3f62600540fe3f0567"
 
 [[package]]
 name = "yrsk-demo"

@@ -1,6 +1,7 @@
-use crate::chaos::Chaos;
-use yrsk::rendering::{ansi::terminal::Terminal, renderer::Renderer};
-mod chaos;
+use yrsk::{
+    diagnostics::chaos::Chaos,
+    rendering::{ansi::terminal::Terminal, renderer::Renderer},
+};
 
 fn main() {
     let mut surface = Terminal::new().expect("Unable to create Terminal.");
