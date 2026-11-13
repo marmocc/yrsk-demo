@@ -9,6 +9,6 @@ fn main() {
     println!(
         "Paint: {}us - Present: {}us",
         average_paint.as_micros(),
-        average_present.as_micros(),
+        average_present.as_micros()
     );
 }
