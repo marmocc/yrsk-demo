@@ -1,8 +1,10 @@
+use crate::chaos::Chaos;
 use yrsk::rendering::{ansi::terminal::Terminal, renderer::Renderer};
+mod chaos;
 
 fn main() {
     let mut surface = Terminal::new().expect("Unable to create Terminal.");
-    let result = surface.benchmark(10_000);
+    let result = surface.benchmark(&mut Chaos::new(), 10_000);
     drop(surface);
 
     let (average_paint, average_present) = result.expect("Something went wrong.");
